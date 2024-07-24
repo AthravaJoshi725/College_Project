@@ -1,89 +1,670 @@
-body, html {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
+/* GENERAL */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
 }
 
-.navbar {
-    background-color: #FFC50D;
-    color: #fff;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 4px #FFC50D;
-    height: 70px; /* Increased height of the menu bar */
+body {
+  font-family: "Poppins", sans-serif;
 }
 
-.navbar-container {
+html {
+  scroll-behavior: smooth;
+}
+
+html {
+  scroll-padding-top: 50px;
+   /* Adjust the value as needed for the desired top margin */
+}
+
+.part {
+  padding-top: 50px;
+  margin: 5rem 10rem 0; /* Margin for spacing */
+  box-sizing: border-box;
+  min-height: fit-content;
+}
+
+p,h4 {
+  color: rgb(85, 85, 85);
+  /* font: 40px; */
+}
+
+/* TRANSITION */
+a,
+.btn {
+  transition: all 300ms ease;
+}
+
+.title {
+  font-size: 2rem; /* Adjust initial font size as needed */
+  transition: transform 0.3s ease-in-out; /* Smooth transition for the hover effect */
+}
+
+.title:hover {
+  transform: scale(1.1); /* Enlarge on hover */
+}
+
+
+
+/* Scroll to Top Button */
+#scrollTopBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: none; /* Hidden by default */
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: black;
+  color: white;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  z-index: 1000; /* Ensure it stays on top */
+  font-size: 24px;
+  line-height: 50px; /* Center the arrow vertically */
+  text-align: center;
+  transition: opacity 0.3s ease;
+}
+
+#scrollTopBtn:hover {
+  background-color: #555;
+}
+
+
+/* DESKTOP NAV */
+#desktop-nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 12%;
+  background-color: #FFC50D; /* or any other background color */
+  z-index: 1000; /* ensures the nav is on top of other elements */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* optional: adds a subtle shadow */
+}
+
+nav,
+.nav-links {
+  display: flex;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between; /* Ensure elements are spaced between */
+  align-items: center;
+  height: 10vh; /* Reduced height */
+  padding-left: 10px; /* Decrease the left padding to move the logo to the left */
+  padding-right: 40px; /* Increase the right padding */
+}
+
+/* Adjust logo to use flex-grow */
+.logo {
+  font-size: 2rem;
+  cursor: default;
+  margin-left: 20px; /* Reset margin */
+  flex-grow: 1; /* Make the logo take up available space */
+}
+
+/* Move all navigation links to the left */
+.nav-links {
+  gap: 1.5rem; /* Maintain the gap between links */
+  list-style: none;
+  font-size: 1.5rem;
+  padding-left: 0; /* Remove padding */
+  padding-right: 40px; /* Ensure there's space on the right */
+}
+
+.nav-links li {
+  margin-right: 0; /* Reset margin */
+}
+
+.nav-links a {
+  color: black;
+  text-decoration: none;
+  display: inline-block;
+  padding: 5px 10px; /* Add some padding for better spacing */
+  position: relative;
+  transition: all 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  display: block;
+  margin-top: 5px;
+  right: 0;
+  background: black;
+  transition: width 0.4s ease;
+  -webkit-transition: width 0.4s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+  left: 0;
+  background: black;
+}
+.nav-links a:hover {
+  color: black; /* Change text color on hover */
+  transform: scale(1.1); /* Enlarge the button slightly */
+  text-decoration: none;
+  text-underline-offset: 1rem;
+  text-decoration-color: rgb(181, 181, 181);
+}
+
+
+/* HAMBURGER MENU */
+#hamburger-nav {
+  display: none;
+  margin-top: 10px; /* Adjust the margin as needed */
+}
+
+.hamburger-menu {
+  position: relative;
+  display: inline-block;
+}
+
+.hamburger-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 24px;
+  width: 30px;
+  cursor: pointer;
+}
+
+.hamburger-icon span {
+  width: 100%;
+  height: 2px;
+  background-color: black;
+  transition: all 0.3s ease-in-out; /* Fixed transition syntax */
+}
+
+.menu-links {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: white;
+  width: fit-content;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out; /* Fixed transition syntax */
+}
+
+.menu-links a {
+  display: block;
+  padding: 10px;
+  text-align: center;
+  font-size: 1.5rem;
+  color: black;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out; /* Fixed transition syntax */
+}
+
+.menu-links li {
+  list-style: none;
+}
+
+.menu-links.open {
+  max-height: 300px;
+}
+
+.hamburger-icon.open span:first-child {
+  transform: rotate(45deg) translate(10px, 5px);
+}
+
+.hamburger-icon.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-icon.open span:last-child {
+  transform: rotate(-45deg) translate(10px, -5px);
+}
+
+
+
+/* SECTIONS */
+
+section {
+  padding-top: 50px;
+  margin: 5rem 10rem 0; 
+  box-sizing: border-box;
+  min-height: fit-content;
+}
+
+.section-container {
+  display: flex;
+}
+
+/* PROFILE SECTION */
+
+#profile {
+  display: flex;
+  justify-content: center;
+  gap: 5rem;
+  height: 80vh;
+}
+
+#profile-pic-container {
+  display: flex;
+  height: 400px;
+  width: 400px;
+  margin: auto 0;
+  justify-content: center;
+  align-items: center;
+}
+
+#profile-pic {
+  width: 100%;
+  height: 80%;
+  border: 2px solid black; /* Add a black border */
+  border-radius: 50%; /*Make the border circular */
+  transition: transform 0.5s ease-in-out; /* Smooth transition for the flip effect */
+  cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+#profile-pic:hover {
+  transform: scale(1.1); /* Enlarge on hover */
+}
+
+.section__text {
+  align-self: center;
+  text-align: center;
+}
+
+.section__text p {
+  font-weight: 600;
+}
+
+.section__text__p1 {
+  text-align: center;
+}
+
+.section__text__p2 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-size: 3rem;
+  text-align: center;
+}
+
+#socials-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  gap: 1rem;
+}
+
+/* ICONS */
+
+.icon {
+  cursor: pointer;
+  height: 2rem;
+  transition: transform 0.2s ease-in-out; 
+}
+
+.icon:hover {
+  transform: scale(1.2); /* Enlarge on hover */
+}
+/* BUTTONS */
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+.btn {
+    /* Add styles for your button here */
+    background-color: #ffc50d ; /* Green background */
+    border: none; /* Remove border */
+    color: black; /* White text */
+    padding: 15px 32px; /* Padding */
+    text-align: center; /* Center text */
+    text-decoration: none; /* Remove underline */
+    display: inline-block; /* Align button inline */
+    font-size: 16px; /* Font size */
+    margin: 4px 2px; /* Margins */
+    cursor: pointer; /* Pointer cursor on hover */
+    border-radius: 30px; /* Rounded corners */
+}
+
+.btn:hover {
+    background-color: #e2b00a; /* Darker green on hover */
+      transform: scale(1.1);
+}
+/* .btn {
+  font-weight: 600;
+  transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+  padding: 1rem;
+  width: 8rem;
+  border-radius: 2rem;
+  text-align: center;
+  border: 0.1rem solid transparent;
+  background-color: transparent;
+  color: black;
+  cursor: pointer;
+}
+
+.btn:hover {
+ /* Enlarge on hover */
+ */
+
+.btn-color-1 {
+  border-color: rgb(53, 53, 53);
+  background-color: black;
+  color: white;
+}
+
+.btn-color-1:hover {
+  background-color: black;
+  color: white;
+}
+
+.btn-color-2 {
+  background-color: black;
+  color: white;
+}
+
+.btn-color-2:hover {
+  border-color: black;
+  color: white;
+}
+
+/* About section styling */
+#about {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4vh 0; /* Ensures padding at top and bottom */
+  
+}
+
+.about-container {
+  display: flex;
+  width: 90%;
+  height: 500px;
+  max-width: 1200px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  
+}
+
+.about-image,
+.about-text {
+  flex: 1;
+  height: auto; /* Ensures the containers have auto height */
+}
+
+.about-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-text {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.about-text h2 {
+  margin-bottom: 1rem;
+}
+
+.about-text p {
+  color: rgb(85, 85, 85);
+}
+
+
+
+/* Skills SECTION */
+#skills {
+    position: relative;
+  }
+  
+  about-container {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    width: 90%;
-    max-width: 1200px;
-}
-
-.navbar-logo {
-    font-size: 24px;
-    font-weight: bold;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  
+  #project-left, #project-middle, #project-right {
+    flex: 1;
+    max-width: 30%; /* Adjust this as needed */
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 8px 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow border */
+    text-align: center; /* Center the project titles */
+    padding: 1rem;
+    height: 350px;
+  }
+  
+  #project-left:hover, #project-middle:hover, #project-right:hover {
+    transform: scale(1.05); /* Enlarge on hover */
+  }
+  
+  .color-container {
+    border-color: rgb(163, 163, 163);
+    background: rgb(250, 250, 250);
+  }
+  
+  .project-img {
+    border-radius: 2rem;
+    width: 100%;
+    height: auto;
+  }
+  
+  .project-title {
+    margin: 1rem auto;
     color: black;
-    transition: transform 0.3s ease;
+    text-align: center; /* Center the project titles */
+  }
+  
+
+
+/* Experience */
+#experience {
+  padding-top: 50px; /* Maintain consistent padding */
+  margin: 5rem 10rem 0; /* Ensure spacing between sections */
+  min-height: fit-content; /* Ensure the section fits its content */
+  box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
 }
 
-.navbar-logo:hover {
-    transform: scale(1.1);
+.experience-timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 100px auto;
 }
 
-.navbar-menu {
-    display: flex;
-    align-items: center;
+.experience-container {
+  padding: 10px 50px;
+  position: relative;
+  width: 50%;
+  animation: movedown 1s linear forwards;
+  opacity: 0;
+  transition: transform 0.3s ease-in-out; /* Add transition for smooth hover effect */
 }
 
-.navbar-item {
-    margin: 0 15px;
-    color: black;
-    text-decoration: none; /* Removed underline */
-    font-size: 16px;
-    transition: transform 0.3s ease;
-    position: relative;
+.experience-container:hover {
+  transform: scale(1.05); /* Enlarge on hover */
 }
 
-.navbar-item:hover {
-    transform: scale(1.1);
+@keyframes movedown {
+  0% {
+    opacity: 1;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
 }
 
-.navbar-profile {
-    display: flex;
-    align-items: center;
+.experience-container:nth-child(1) {
+  animation-delay: 0s;
+}
+.experience-container:nth-child(2) {
+  animation-delay: 1s;
+}
+.experience-container:nth-child(3) {
+  animation-delay: 2s;
+}
+.experience-container:nth-child(4) {
+  animation-delay: 3s;
 }
 
-.profile-image {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    transition: transform 0.3s ease;
+.text-box {
+  padding: 20px 30px;
+  background: white;
+  position: relative;
+  border-radius: 6px;
+  font-size: 15px;
+  border: 1px solid grey; /* Add border */
 }
 
-.profile-image:hover {
-    transform: scale(1.1);
+.left-container {
+  left: 0;
+  margin-left: -10%; /* Adjust this value as needed */
 }
 
-main {
-    padding-top: 70px; /* Adjusted padding to match the increased height of the navbar */
+.right-container {
+  left: 50%;
 }
 
-/* Font styles for Roboto Condensed */
-.roboto-menu {
-  font-family: "Roboto Condensed", sans-serif;
-  font-weight: 400; /* You can adjust the weight if needed */
+.experience-icon {
+  position: absolute;
+  width: 14px; /* Adjust width */
+  height: 14px; /* Adjust height */
+  right: -14px;
+  top: 40px;
+  z-index: 10;
+  background: white; /* Added white background */
+  border-radius: 50%; /* Added circular border */
+  border: 1px solid grey; /* Added grey border */
+  padding: 3px;
 }
 
-/* Font styles for Oswald */
-.oswald-title {
-  font-family: "Oswald", sans-serif;
-  font-weight: 500; /* You can adjust the weight if needed */
+.right-container .experience-icon {
+  left: -10px; /* Adjust this value to align properly */
+  right: auto; /* Remove right position for right containers */
+}
+
+.experience-timeline::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 100%;
+  background-color: black;
+  top: 0;
+  left: 50%;
+  margin-left: -3px;
+  z-index: -1;
+  animation: moveline 6s linear forwards;
+}
+
+@keyframes moveline {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 100%;
+  }
+}
+
+.text-box h2 {
+  font-weight: 600;
+}
+
+.text-box small {
+  display: inline-block;
+  margin-bottom: 15px;
+}
+
+.left-container-arrow {
+  height: 0;
+  width: 0;
+  position: absolute;
+  top: 28px;
+  z-index: 1;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-left: 15px solid black;
+  right: -15px;
+}
+
+.right-container-arrow {
+  height: 0;
+  width: 0;
+  position: absolute;
+  top: 28px;
+  z-index: 1;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-right: 15px solid black;
+  left: -15px;
+}
+
+/* Projects Section */
+
+
+
+/* CONTACT */
+
+#contact {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 70vh;
+  margin-top: 8rem;
+}
+
+.contact-info-upper-container {
+  display: flex;
+  justify-content: center;
+  border-radius: 2rem;
+  border: rgb(53, 53, 53) 0.1rem solid;
+  border-color: rgb(163, 163, 163);
+  background: (250, 250, 250);
+  margin: 2rem auto;
+  padding: 0.5rem;
+}
+
+.contact-info-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 1rem;
+}
+
+.contact-info-container p {
+  font-size: larger;
+}
+
+.contact-icon {
+  cursor: default;
+}
+
+.email-icon {
+  height: 2.5rem;
+}
+
+/* FOOTER SECTION */
+
+footer {
+  height: 26vh;
+  margin: 0 1rem;
+}
+
+footer p {
+  text-align: center;
 }
