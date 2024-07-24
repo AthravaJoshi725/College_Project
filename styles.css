@@ -1,0 +1,89 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    background-color: #FFC50D;
+    color: #fff;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px #FFC50D;
+    height: 70px; /* Increased height of the menu bar */
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: 1200px;
+}
+
+.navbar-logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: black;
+    transition: transform 0.3s ease;
+}
+
+.navbar-logo:hover {
+    transform: scale(1.1);
+}
+
+.navbar-menu {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-item {
+    margin: 0 15px;
+    color: black;
+    text-decoration: none; /* Removed underline */
+    font-size: 16px;
+    transition: transform 0.3s ease;
+    position: relative;
+}
+
+.navbar-item:hover {
+    transform: scale(1.1);
+}
+
+.navbar-profile {
+    display: flex;
+    align-items: center;
+}
+
+.profile-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.profile-image:hover {
+    transform: scale(1.1);
+}
+
+main {
+    padding-top: 70px; /* Adjusted padding to match the increased height of the navbar */
+}
+
+/* Font styles for Roboto Condensed */
+.roboto-menu {
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 400; /* You can adjust the weight if needed */
+}
+
+/* Font styles for Oswald */
+.oswald-title {
+  font-family: "Oswald", sans-serif;
+  font-weight: 500; /* You can adjust the weight if needed */
+}
