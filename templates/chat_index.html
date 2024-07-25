@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Support Chatbot</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f9; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .chat-container { width: 400px; background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        .chat-box { height: 300px; overflow-y: auto; border: 1px solid #ddd; padding: 10px; margin-bottom: 10px; border-radius: 5px; background: #f9f9f9; }
+        .message { padding: 5px 10px; border-radius: 5px; margin-bottom: 10px; }
+        .user { background-color: #d1e7dd; align-self: flex-end; }
+        .bot { background-color: #e2e3e5; }
+        .input-container { display: flex; }
+        .input-container input { flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 5px; }
+        .input-container button { padding: 10px 20px; border: none; background-color: #007bff; color: #fff; border-radius: 5px; cursor: pointer; }
+        .input-container button:hover { background-color: #0056b3; }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-box" id="chat-box"></div>
+        <div class="input-container">
+            <input type="text" id="user-input" placeholder="Type a message..." />
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        async function sendMessage() {
+            const inputBox = document.getElementById('user-input');
+            const message = inputBox.value;
+            inputBox.value = '';
+
+            if (!message.trim()) return;
+
+            const chatBox = document.getElementById('chat-box');
+            const userMessageDiv = document.createElement('div');
+            userMessageDiv.classList.add('message', 'user');
+            userMessageDiv.textContent = message;
+            chatBox.appendChild(userMessageDiv);
+            chatBox.scrollTop = chatBox.scrollHeight;
+
+            const response = await fetch('/message', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ message })
+            });
+            const data = await response.json();
+
+            const botMessageDiv = document.createElement('div');
+            botMessageDiv.classList.add('message', 'bot');
+            botMessageDiv.textContent = data.reply;
+            chatBox.appendChild(botMessageDiv);
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+    </script>
+</body>
+</html>
