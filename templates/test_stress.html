@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/bsstyles.css') }}">
-    <script src="{{ url_for('static', filename='js/bsscript.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/test_style.css') }}">
+    <script src="{{ url_for('static', filename='js/test_script.js') }}"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Initial Screening Questionnaire</title>
@@ -14,70 +14,84 @@
 
     <div class="basic_screen">
         <div class="container top-section">
-            <h1>Assessment</h1>
+            <h1>Stress</h1>
             <p class="instructions">
                 Welcome! To help us understand your mental health better, use the scale from 0 to 3, where 0 means "not at all" and 3 means "very much." Your answers will help us decide further questions and provide the best support for you.
             </p>
         </div>
         <div class="container">
             <div class="right-section">
-                <h4>Please answer the following questions based on how you've been feeling over the past few days.</h4>
+                <h4>Answer the following questions based on how you've been feeling in the past month.</h4>
                 <form id="screening-form" onsubmit="event.preventDefault(); submitForm();">
                     <div class="question">
-                        <label>I have felt nervous, anxious, or on edge:</label>
+                        <label>How often have you felt nervous or stressed?</label>
                         <input type="radio" name="q1" value="0" required> 0
                         <input type="radio" name="q1" value="1"> 1
                         <input type="radio" name="q1" value="2"> 2
                         <input type="radio" name="q1" value="3"> 3
                     </div>
                     <div class="question">
-                        <label>I have felt down, depressed, or hopeless:</label>
+                        <label>How often have you been overwhelmed by your daily responsibilities?</label>
                         <input type="radio" name="q2" value="0" required> 0
                         <input type="radio" name="q2" value="1"> 1
                         <input type="radio" name="q2" value="2"> 2
                         <input type="radio" name="q2" value="3"> 3
                     </div>
                     <div class="question">
-                        <label>I have found it hard to relax:</label>
+                        <label>How often have you felt that you had too many demands on your time?</label>
                         <input type="radio" name="q3" value="0" required> 0
                         <input type="radio" name="q3" value="1"> 1
                         <input type="radio" name="q3" value="2"> 2
                         <input type="radio" name="q3" value="3"> 3
                     </div>
                     <div class="question">
-                        <label>I have been worrying too much about different things:</label>
+                        <label>How often have you experienced difficulty relaxing or unwinding after a stressful event?</label>
                         <input type="radio" name="q4" value="0" required> 0
                         <input type="radio" name="q4" value="1"> 1
                         <input type="radio" name="q4" value="2"> 2
                         <input type="radio" name="q4" value="3"> 3
                     </div>
                     <div class="question">
-                        <label>I have had little interest or pleasure in doing things:</label>
+                        <label>How often have you felt anxious or worried about future events?</label>
                         <input type="radio" name="q5" value="0" required> 0
                         <input type="radio" name="q5" value="1"> 1
                         <input type="radio" name="q5" value="2"> 2
                         <input type="radio" name="q5" value="3"> 3
                     </div>
                     <div class="question">
-                        <label>I have felt easily annoyed or irritable:</label>
+                        <label>How often have you felt that you are losing control over important aspects of your life?</label>
                         <input type="radio" name="q6" value="0" required> 0
                         <input type="radio" name="q6" value="1"> 1
                         <input type="radio" name="q6" value="2"> 2
                         <input type="radio" name="q6" value="3"> 3
                     </div>
                     <div class="question">
-                        <label>I have felt fatigued or had little energy:</label>
+                        <label>How often have you felt irritable or easily angered due to stress?</label>
                         <input type="radio" name="q7" value="0" required> 0
                         <input type="radio" name="q7" value="1"> 1
                         <input type="radio" name="q7" value="2"> 2
                         <input type="radio" name="q7" value="3"> 3
                     </div>
-                    <button id="submit-btn" type="submit"><b>Submit</b></button>
+                    <div class="question">
+                        <label>How often have you experienced physical symptoms like headaches or stomach issues related to stress?</label>
+                        <input type="radio" name="q8" value="0" required> 0
+                        <input type="radio" name="q8" value="1"> 1
+                        <input type="radio" name="q8" value="2"> 2
+                        <input type="radio" name="q8" value="3"> 3
+                    </div>
+                    <div class="question">
+                        <label>How often have you felt that you are not handling your stress as well as you would like?</label>
+                        <input type="radio" name="q9" value="0" required> 0
+                        <input type="radio" name="q9" value="1"> 1
+                        <input type="radio" name="q9" value="2"> 2
+                        <input type="radio" name="q9" value="3"> 3
+                    </div>
+                    <button type="submit"><b>Submit</b></button>
                 </form>
             </div>
         </div>
     </div>
 
-    <script src="{{ url_for('static', filename='js/bsscript.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/test_script.js') }}"></script>
 </body>
 </html>

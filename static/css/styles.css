@@ -112,7 +112,7 @@ nav {
 .nav-links {
   gap: 1.5rem; /* Maintain the gap between links */
   list-style: none;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   padding-left: 0; /* Remove padding */
   padding-right: 40px; /* Ensure there's space on the right */
 }
@@ -321,7 +321,7 @@ section {
 }
 .btn {
     /* Add styles for your button here */
-    background-color: #ffc50d ; /* Green background */
+    background-color: #ffc50d; /* Green background */
     border: none; /* Remove border */
     color: black; /* White text */
     padding: 15px 32px; /* Padding */
@@ -411,49 +411,6 @@ section {
 
 
 
-/* Skills SECTION */
-#skills {
-    position: relative;
-  }
-  
-  about-container {
-    display: flex;
-    justify-content: space-between;
-    gap: 2rem;
-    margin-top: 2rem;
-  }
-  
-  #project-left, #project-middle, #project-right {
-    flex: 1;
-    max-width: 30%; /* Adjust this as needed */
-    transition: transform 0.3s ease-in-out;
-    box-shadow: 8px 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow border */
-    text-align: center; /* Center the project titles */
-    padding: 1rem;
-    height: 350px;
-  }
-  
-  #project-left:hover, #project-middle:hover, #project-right:hover {
-    transform: scale(1.05); /* Enlarge on hover */
-  }
-  
-  .color-container {
-    border-color: rgb(163, 163, 163);
-    background: rgb(250, 250, 250);
-  }
-  
-  .project-img {
-    border-radius: 2rem;
-    width: 100%;
-    height: auto;
-  }
-  
-  .project-title {
-    margin: 1rem auto;
-    color: black;
-    text-align: center; /* Center the project titles */
-  }
-  
 
 
 /* Experience */
@@ -617,7 +574,10 @@ section {
   box-shadow: 8px 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow border */
   text-align: center; /* Center the project titles */
   padding: 1rem;
-  height: 350px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Ensure space between elements */
 }
 
 #project-left:hover, #project-middle:hover, #project-right:hover {
@@ -639,6 +599,44 @@ section {
   margin: 1rem auto;
   color: black;
   text-align: center; /* Center the project titles */
+}
+
+.project-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Space out elements */
+}
+
+.article-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Space out elements */
+  height: 100%;
+}
+
+.know-more-btn {
+  background-color: #FFC50D;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+  align-self: center; /* Center the button horizontally */
+  margin-top: auto; /* Push the button to the bottom */
+}
+
+
+.know-more-btn:hover {
+  transform: scale(1.1); /* Enlarge on hover */
+}
+
+/* Ensure paragraph text stays within the container */
+p {
+  margin-bottom: 1rem;
+  overflow: hidden;
+  text-align: left;
+  text-overflow: ellipsis;
 }
 
 

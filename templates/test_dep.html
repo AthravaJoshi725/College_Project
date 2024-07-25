@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/bsstyles.css') }}">
-    <script src="{{ url_for('static', filename='js/bsscript.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/test_style.css') }}">
+    <script src="{{ url_for('static', filename='js/test_script.js') }}"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Initial Screening Questionnaire</title>
@@ -14,70 +14,84 @@
 
     <div class="basic_screen">
         <div class="container top-section">
-            <h1>Assessment</h1>
+            <h1>Depression</h1>
             <p class="instructions">
                 Welcome! To help us understand your mental health better, use the scale from 0 to 3, where 0 means "not at all" and 3 means "very much." Your answers will help us decide further questions and provide the best support for you.
             </p>
         </div>
         <div class="container">
             <div class="right-section">
-                <h4>Please answer the following questions based on how you've been feeling over the past few days.</h4>
-                <form id="screening-form" onsubmit="event.preventDefault(); submitForm();">
+                <h4>Answer the following questions based on how you've been feeling over the past two weeks.</h4>
+                <form id="test-form" onsubmit="event.preventDefault(); submitForm();">
                     <div class="question">
-                        <label>I have felt nervous, anxious, or on edge:</label>
+                        <label>How often have you been bothered by having little interest or pleasure in doing things?</label>
                         <input type="radio" name="q1" value="0" required> 0
                         <input type="radio" name="q1" value="1"> 1
                         <input type="radio" name="q1" value="2"> 2
                         <input type="radio" name="q1" value="3"> 3
                     </div>
                     <div class="question">
-                        <label>I have felt down, depressed, or hopeless:</label>
+                        <label>How often have you been bothered by feeling down, depressed, or hopeless?</label>
                         <input type="radio" name="q2" value="0" required> 0
                         <input type="radio" name="q2" value="1"> 1
                         <input type="radio" name="q2" value="2"> 2
                         <input type="radio" name="q2" value="3"> 3
                     </div>
                     <div class="question">
-                        <label>I have found it hard to relax:</label>
+                        <label>How often have you been bothered by trouble falling or staying asleep, or sleeping too much?</label>
                         <input type="radio" name="q3" value="0" required> 0
                         <input type="radio" name="q3" value="1"> 1
                         <input type="radio" name="q3" value="2"> 2
                         <input type="radio" name="q3" value="3"> 3
                     </div>
                     <div class="question">
-                        <label>I have been worrying too much about different things:</label>
+                        <label>How often have you been bothered by feeling tired or having little energy?</label>
                         <input type="radio" name="q4" value="0" required> 0
                         <input type="radio" name="q4" value="1"> 1
                         <input type="radio" name="q4" value="2"> 2
                         <input type="radio" name="q4" value="3"> 3
                     </div>
                     <div class="question">
-                        <label>I have had little interest or pleasure in doing things:</label>
+                        <label>How often have you been bothered by poor appetite or overeating?</label>
                         <input type="radio" name="q5" value="0" required> 0
                         <input type="radio" name="q5" value="1"> 1
                         <input type="radio" name="q5" value="2"> 2
                         <input type="radio" name="q5" value="3"> 3
                     </div>
                     <div class="question">
-                        <label>I have felt easily annoyed or irritable:</label>
+                        <label>How often have you been bothered by feeling bad about yourself—or that you are a failure or have let yourself or your family down?</label>
                         <input type="radio" name="q6" value="0" required> 0
                         <input type="radio" name="q6" value="1"> 1
                         <input type="radio" name="q6" value="2"> 2
                         <input type="radio" name="q6" value="3"> 3
                     </div>
                     <div class="question">
-                        <label>I have felt fatigued or had little energy:</label>
+                        <label>How often have you been bothered by trouble concentrating on things, such as reading the newspaper or watching television?</label>
                         <input type="radio" name="q7" value="0" required> 0
                         <input type="radio" name="q7" value="1"> 1
                         <input type="radio" name="q7" value="2"> 2
                         <input type="radio" name="q7" value="3"> 3
                     </div>
-                    <button id="submit-btn" type="submit"><b>Submit</b></button>
+                    <div class="question">
+                        <label>How often have you been bothered by moving or speaking so slowly that other people could have noticed, or by the opposite—being so fidgety or restless that you have been moving around a lot more than usual?</label>
+                        <input type="radio" name="q8" value="0" required> 0
+                        <input type="radio" name="q8" value="1"> 1
+                        <input type="radio" name="q8" value="2"> 2
+                        <input type="radio" name="q8" value="3"> 3
+                    </div>
+                    <div class="question">
+                        <label>How often have you been bothered by thoughts that you would be better off dead or of hurting yourself in some way?</label>
+                        <input type="radio" name="q9" value="0" required> 0
+                        <input type="radio" name="q9" value="1"> 1
+                        <input type="radio" name="q9" value="2"> 2
+                        <input type="radio" name="q9" value="3"> 3
+                    </div>
+                    <button type="submit"><b>Submit</b></button>
                 </form>
             </div>
         </div>
     </div>
 
-    <script src="{{ url_for('static', filename='js/bsscript.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/test_script.js') }}"></script>
 </body>
 </html>
