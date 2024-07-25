@@ -259,7 +259,7 @@ section {
 }
 
 #profile-pic {
-  width: 100%;
+  width:  125%;
   height: 80%;
   border: 2px solid black; /* Add a black border */
   border-radius: 50%; /*Make the border circular */
@@ -338,22 +338,7 @@ section {
     background-color: #e2b00a; /* Darker green on hover */
       transform: scale(1.1);
 }
-/* .btn {
-  font-weight: 600;
-  transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
-  padding: 1rem;
-  width: 8rem;
-  border-radius: 2rem;
-  text-align: center;
-  border: 0.1rem solid transparent;
-  background-color: transparent;
-  color: black;
-  cursor: pointer;
-}
 
-.btn:hover {
- /* Enlarge on hover */
- */
 
 .btn-color-1 {
   border-color: rgb(53, 53, 53);
@@ -390,7 +375,7 @@ section {
   width: 90%;
   height: 500px;
   max-width: 1200px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 8px 4px 8px rgba(0, 0, 0, 0.1); 
   border-radius: 10px;
   overflow: hidden;
   
@@ -614,7 +599,47 @@ section {
 }
 
 /* Projects Section */
+#projects {
+  position: relative;
+}
 
+#projects-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+#project-left, #project-middle, #project-right {
+  flex: 1;
+  max-width: 30%; /* Adjust this as needed */
+  transition: transform 0.3s ease-in-out;
+  box-shadow: 8px 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow border */
+  text-align: center; /* Center the project titles */
+  padding: 1rem;
+  height: 350px;
+}
+
+#project-left:hover, #project-middle:hover, #project-right:hover {
+  transform: scale(1.05); /* Enlarge on hover */
+}
+
+.color-container {
+  border-color: rgb(163, 163, 163);
+  background: rgb(250, 250, 250);
+}
+
+.project-img {
+  border-radius: 2rem;
+  width: 100%;
+  height: auto;
+}
+
+.project-title {
+  margin: 1rem auto;
+  color: black;
+  text-align: center; /* Center the project titles */
+}
 
 
 /* CONTACT */
