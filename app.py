@@ -5,7 +5,7 @@ import json
 app = Flask(__name__)
 
 # Replace with your actual API key
-API_KEY = 'AIzaSyDp1mr_H29lJDNf1hnvlme31aYxkQAPbYI'
+API_KEY = 'abc'
 genai.configure(api_key=API_KEY)
 
 # Load the dataset
