@@ -29,6 +29,10 @@ nav#desktop-nav {
     font-weight: bold;
 }
 
+.logo:hover {
+    transform: scale(1.1);
+  }
+
 .chat-container {
     width: 60%;
     height: 500px;

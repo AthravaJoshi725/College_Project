@@ -2,24 +2,25 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/test_style.css') }}">
+    <link rel="icon" href="./static/images/logo_website.jpg" type="image/x-icon">
     <script src="{{ url_for('static', filename='js/test_dep.js') }}"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Initial Screening Questionnaire</title>
+    <title>Depression Assessment</title>
     <!-- Include Plotly.js -->
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
 <body>
     <nav id="desktop-nav">
-        <div class="logo">Mindmate</div>
+        <div class="logo" onclick="window.location.reload()">Mindmate</div>
     </nav>
 
     <div class="basic_screen">
         <div class="container top-section">
             <h1>Depression</h1>
-            <p class="instructions">
+            <!-- <p class="instructions">
                 Welcome! To help us understand your mental health better, use the scale from 0 to 3, where 0 means "not at all" and 3 means "very much." Your answers will help us decide further questions and provide the best support for you.
-            </p>
+            </p> -->
         </div>
         <div class="container">
             <div class="right-section">
