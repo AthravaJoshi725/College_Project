@@ -17,11 +17,12 @@ nav#desktop-nav {
 .logo {
     font-size: 24px;
     font-weight: bold;
+    transition: transform 0.3s ease-in-out;
 }
 
 .logo:hover {
     transform: scale(1.1);
-  }
+}
 
 .basic_screen {
     display: flex;
@@ -65,11 +66,8 @@ nav#desktop-nav {
     margin-top: 10px;
 }
 
-.instructions {
-    margin-top: 20px;
+.right-section h4 {
     text-align: left;
-    font-size: 16px;
-    line-height: 1.5;
 }
 
 .question {
@@ -88,7 +86,6 @@ input[type="radio"] {
 
 input[type="radio"]:hover {
     transform: scale(1.1);
-
 }
 
 button[type="submit"] {
@@ -111,3 +108,38 @@ button[type="submit"]:hover {
     margin-top: 20px;
 }
 
+.consultation-box {
+    margin-top: 20px;
+    padding: 20px;
+    border: 2px solid #FFC50D;
+    border-radius: 8px;
+    background-color: #fff;
+    text-align: left;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.consultation-box ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+.consultation-box p {
+    margin-bottom: 10px;
+}
+
+.chat-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #FFC50D;
+    color: black;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.chat-btn:hover {
+    background-color: #b18a0c;
+}
