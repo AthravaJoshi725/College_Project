@@ -5,18 +5,22 @@ import json
 app = Flask(__name__)
 
 # Replace with your actual API key
-API_KEY = 'abcd'
+API_KEY = ''
 genai.configure(api_key=API_KEY)
 
 # Load the dataset
-with open('mental_health_data.json', 'r') as file:
-    data = json.load(file)
+try:
+    with open('mental_health_data.json', 'r') as file:
+        data = json.load(file)
+except Exception as e:
+    print(f"Error loading data: {e}")
+    data = {'intents': []}
 
 training_data = []
-for intent in data['intents']:
-    tag = intent['tag']
-    for pattern in intent['patterns']:
-        for response in intent['responses']:
+for intent in data.get('intents', []):
+    tag = intent.get('tag', '')
+    for pattern in intent.get('patterns', []):
+        for response in intent.get('responses', []):
             training_data.append({
                 'input': pattern,
                 'output': response
@@ -31,11 +35,15 @@ class FineTunedChat:
         for item in self.training_data:
             if user_input.lower() in item['input'].lower():
                 return item['output']
-        return None  # Return None if no exact match found
+        return None
 
 # Initialize the Google Gemini LLM
-model = genai.GenerativeModel('gemini-pro')
-chat = model.start_chat(history=[])
+try:
+    model = genai.GenerativeModel('gemini-pro')
+    chat = model.start_chat(history=[])
+except Exception as e:
+    print(f"Error initializing model: {e}")
+    chat = None
 
 fine_tuned_chat = FineTunedChat(model, training_data)
 
@@ -77,13 +85,29 @@ def ChatBot():
 
 @app.route('/message', methods=['POST'])
 def message():
-    user_input = request.json.get('message')
-    response_text = fine_tuned_chat.get_response(user_input)
+    user_input = request.json.get('message', '')
 
-    if response_text:
-        reply = response_text
-    else:
-        instruction = '''You are a mental health specialist providing support in a conversational manner. When responding to users, aim to create a warm and empathetic interaction, much like a dialogue between a mental health professional and a patient. 
+    if not user_input:
+        return jsonify({'reply': "Sorry, I didn't receive a message."})
+
+    try:
+        if 'depression score' in user_input.lower():
+            response_text = fine_tuned_chat.get_response(user_input)
+            if response_text:
+                reply = response_text
+            else:
+                if chat:
+                    # Hypothetical method call, adjust as necessary
+                    response = chat.send_message(prompt=f"You are a mental health specialist providing support. User's depression score is mentioned. Respond empathetically.")
+                    reply = response.get('text', '').strip()  # Adjust based on actual response format
+                else:
+                    reply = "I'm sorry, I'm unable to process your request at the moment."
+        else:
+            response_text = fine_tuned_chat.get_response(user_input)
+            if response_text:
+                reply = response_text
+            else:
+                instruction = '''You are a mental health specialist providing support in a conversational manner. When responding to users, aim to create a warm and empathetic interaction, much like a dialogue between a mental health professional and a patient. 
 
                 1. **Show Empathy**: Acknowledge the user's feelings and concerns with empathy. Use supportive and reassuring language.
                 2. **Be Concise and Relevant**: Provide clear, direct responses without overwhelming details. Focus on the user's immediate concerns and offer practical advice.
@@ -92,10 +116,20 @@ def message():
                 5. **Respectful Engagement**: Engage with users respectfully and maintain a professional tone, even if the conversation becomes challenging.
 
                 Respond to the user's query accordingly.'''
-        response = chat.send_message(instruction + user_input)
-        reply = response.text
+                if chat:
+                    # Hypothetical method call, adjust as necessary
+                    response = chat.send_message(prompt=instruction + "\n\n" + user_input)
+                    reply = response.get('text', '').strip()  # Adjust based on actual response format
+                else:
+                    reply = "I'm sorry, I'm unable to process your request at the moment."
+        
+        return jsonify({'reply': reply})
+    
+    except Exception as e:
+        print(f"Error processing message: {e}")
+        return jsonify({'reply': "Sorry, there was an error processing your message."})
 
-    return jsonify({'reply': reply})
+
 
 if __name__ == '__main__':
     app.run(debug=True)
