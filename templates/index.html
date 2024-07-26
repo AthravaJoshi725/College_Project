@@ -61,7 +61,7 @@
     <section id="about">
       <div class="about-container">
           <div class="about-image">
-              <img src="./static/images/assessment-images.png" alt="Atharva Joshi">
+              <img src="./static/images/assessment-images.png" alt="assessment">
           </div>
           <div class="about-text">
               <h2>Your Path to Peace of Mind Starts Here: Take Our Assessment</h2>
@@ -73,6 +73,24 @@
           </div>
       </div>
     </section>
+
+    <section id="Bot">
+      <div class="bot-container">
+        <div class="bot-text">
+          <h2>Take Charge of Your Well-Being: Quick Chat with Noddle</h2>
+          <p>
+            Hello! I'm Noddle, your mental health assistant. I'm here to offer you a safe and confidential space to share your thoughts and feelings without any fear of judgment. You can talk to me about any mental health concerns you have. Think of me as your supportive buddy, always ready to listen and provide helpful guidelines. Let's chat and work through this together.
+          </p>
+          <div class="button-container">
+            <button class="btn" id="bot-btn"><b>Chat with me</b></button>
+          </div>
+        </div>
+        <div class="bot-image">
+          <img src="./static/images/home-bot.jpg" alt="assessment">
+        </div>
+      </div>
+    </section>
+    
   
     
     <section id="projects" class="part">
@@ -178,34 +196,36 @@
     </section> -->
     
     </section>
-    <section id="contact" class="part">
-      <p class="section__text__p1">Get in Touch</p>
-      <h1 class="title">Contact Us</h1>
-      <div class="contact-info-upper-container">
-        <div class="contact-info-container">
-          <img
-            src="/static/images/mail2-image.png"
-            alt="Email icon"
-            class="icon contact-icon email-icon"
-          />
-          <p><a href="mailto:examplemail@gmail.com">mindmate@gmail.com</a></p>
+    <section id="background-contact">
+      <section id="contact" class="part">
+        <p class="section__text__p1">Get in Touch</p>
+        <h1 class="title">Contact Us</h1>
+        <div class="contact-info-upper-container">
+          <div class="contact-info-container">
+            <img
+              src="/static/images/mail2-image.png"
+              alt="Email icon"
+              class="icon contact-icon email-icon"
+            />
+            <p><a href="mailto:examplemail@gmail.com">mindmate@gmail.com</a></p>
+          </div>
+          <div class="contact-info-container">
+            <img
+              src="/static/images/phone-icon.png"
+              alt="phone icon"
+              class="icon contact-icon"
+            />
+            <p>9328184728</p>
+          </div>
         </div>
-        <div class="contact-info-container">
-          <img
-            src="/static/images/phone-icon.png"
-            alt="phone icon"
-            class="icon contact-icon"
-          />
-          <p>9328184728</p>
-        </div>
-      </div>
-    </section>
-    <footer>
-      <!-- <nav>
-        
-      </nav> -->
-      <p>Copyright &#169; 2024 Mindmate. All Rights Reserved.</p>
-    </footer>
+      </section>
+      <footer>
+        <!-- <nav>
+          
+        </nav> -->
+        <p>Copyright &#169; 2024 Mindmate. All Rights Reserved.</p>
+      </footer>
+  </section>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
   </body>
 </html>

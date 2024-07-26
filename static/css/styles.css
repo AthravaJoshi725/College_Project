@@ -423,6 +423,54 @@ section {
 }
 
 
+/* bot section styling */
+#Bot {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4vh 0; /* Ensures padding at top and bottom */
+}
+
+.bot-container {
+  display: flex;
+  /* flex-direction: row-reverse; Places the image on the right */
+  width: 90%;
+  height: 500px;
+  max-width: 1200px;
+  box-shadow: 8px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.bot-image,
+.bot-text {
+  flex: 1;
+  height: auto; /* Ensures the containers have auto height */
+}
+
+.bot-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bot-text {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.bot-text h2 {
+  margin-bottom: 1rem;
+}
+
+.bot-text p {
+  color: rgb(85, 85, 85);
+}
+
+
 
 
 
@@ -654,7 +702,16 @@ p {
 
 
 /* CONTACT */
-
+#background-contact {
+  background-image: url('background-home2.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 #contact {
   display: flex;
   justify-content: center;
