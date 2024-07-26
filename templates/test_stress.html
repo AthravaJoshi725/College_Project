@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/test_style.css') }}">
-    <script src="{{ url_for('static', filename='js/test_script.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/test_stress.js') }}"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <title>Initial Screening Questionnaire</title>
 </head>
 <body>
@@ -22,7 +23,7 @@
         <div class="container">
             <div class="right-section">
                 <h4>Answer the following questions based on how you've been feeling in the past month.</h4>
-                <form id="screening-form" onsubmit="event.preventDefault(); submitForm();">
+                <form id="test-form" onsubmit="event.preventDefault(); submitForm();">
                     <div class="question">
                         <label>How often have you felt nervous or stressed?</label>
                         <input type="radio" name="q1" value="0" required> 0
@@ -88,10 +89,14 @@
                     </div>
                     <button type="submit"><b>Submit</b></button>
                 </form>
+                <!-- Container for results -->
+                <div id="results" style="text-align: center; margin-top: 20px;"></div>
+                <!-- Container for gauge chart -->
+                <div id="gauge-chart" style="width: 100%; height: 400px;"></div>
             </div>
         </div>
     </div>
 
-    <script src="{{ url_for('static', filename='js/test_script.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/test_stress.js') }}"></script>
 </body>
 </html>
