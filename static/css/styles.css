@@ -100,12 +100,34 @@ nav {
   padding-right: 40px; /* Increase the right padding */
 }
 
+/* Logo container to group image and text */
+.logo-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* Style for logo image */
+.logo-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+  transition: transform 0.3s ease;
+}
+
 /* Adjust logo to use flex-grow */
 .logo {
   font-size: 2rem;
   cursor: default;
-  margin-left: 20px; /* Reset margin */
+  margin-left: 0; /* Reset margin */
   flex-grow: 1; /* Make the logo take up available space */
+  transition: transform 0.3s ease;
+}
+
+/* Hover effect for logo container */
+.logo-container:hover .logo-img {
+  transform: scale(1.1);
 }
 
 /* Move all navigation links to the left */
@@ -148,6 +170,7 @@ nav {
   left: 0;
   background: black;
 }
+
 .nav-links a:hover {
   color: black; /* Change text color on hover */
   transform: scale(1.1); /* Enlarge the button slightly */
