@@ -1,0 +1,143 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('bg-scenery.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+nav#desktop-nav {
+    background-color: #FFC50D;
+    color: black;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.chat-container {
+    width: 60%;
+    height: 500px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    margin-top: 60px;
+    border: 1px solid #000000;
+}
+
+.chat-box {
+    height: 400px;
+    overflow-y: auto;
+    border: 1px solid #000000;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background: #f9f9f9;
+}
+
+.message-wrapper {
+    display: flex;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.message {
+    padding: 10px 15px;
+    border-radius: 20px;
+    max-width: 80%;
+    word-wrap: break-word;
+    display: inline-block;
+}
+
+.user-wrapper {
+    justify-content: flex-end;
+}
+
+.user {
+    background-color: #439ee9;
+    color: white;
+    border-top-right-radius: 2;
+}
+
+.bot {
+    background-color: #ffc50d;
+    color: black;
+    border-top-left-radius: 2;
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+}
+
+.input-container input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.input-container button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: relative;
+}
+
+.input-container button img {
+    width: 24px;
+    height: 24px;
+}
+
+.input-container button:hover img {
+    transform: scale(1.1);
+}
+
+.input-container button:active img {
+    transform: scale(1.2);
+    filter: brightness(0.8);
+}
+
+.input-container button:hover::after {
+    content: "Refresh chat";
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 5px;
+    border-radius: 3px;
+    white-space: nowrap;
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+.loading-indicator {
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(0,0,0,0.3);
+    border-radius: 50%;
+    border-top-color: #000;
+    animation: spin 1s infinite linear;
+    margin: 0 auto;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}

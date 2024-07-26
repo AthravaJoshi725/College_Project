@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bot_style.css') }}">
+    <script src="{{ url_for('static', filename='js/bot_script.js') }}"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Support Chatbot</title>
+</head>
+<body>
+    <nav id="desktop-nav">
+        <div class="logo">Mindmate</div>
+    </nav>
+    <div class="chat-container">
+        <div class="chat-box" id="chat-box"></div>
+        <div class="input-container">
+            <input type="text" id="user-input" placeholder="Chat with Noddle..." onkeypress="handleKeyPress(event)" />
+            <button id="refresh-button" onclick="refreshChat()">
+                <img src="./static/images/refresh_logo.png" alt="Refresh">
+            </button>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/bot_script.js') }}"></script>
+</body>
+</html>

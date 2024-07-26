@@ -73,7 +73,7 @@ def TestStress():
 
 @app.route('/ChatBot')
 def ChatBot():
-    return render_template('chat_index.html')
+    return render_template('bot_index.html')
 
 @app.route('/message', methods=['POST'])
 def message():
@@ -99,6 +99,7 @@ def message():
         Do not forcefully end the conversation; allow the user to conclude with "bye."
         Avoid starting new conversations or diverting the discussion unnecessarily.
         By adhering to these guidelines, you will provide effective and compassionate support to individuals seeking mental health assistance.
+        
         '''
         response = chat.send_message(instruction + user_input)
         reply = response.text
