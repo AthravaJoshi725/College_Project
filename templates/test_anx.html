@@ -2,10 +2,12 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/test_style.css') }}">
-    <script src="{{ url_for('static', filename='js/test_script.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/test_anx.js') }}"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Initial Screening Questionnaire</title>
+    <!-- Add Plotly CDN -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
 <body>
     <nav id="desktop-nav">
@@ -88,10 +90,13 @@
                     </div>
                     <button type="submit"><b>Submit</b></button>
                 </form>
+                <!-- Add Results and Gauge Chart containers -->
+                <div id="results" style="text-align: center; margin-top: 20px;"></div>
+                <div id="gauge-chart" style="width: 100%; height: 400px;"></div>
             </div>
         </div>
     </div>
 
-    <script src="{{ url_for('static', filename='js/test_script.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/test_anx.js') }}"></script>
 </body>
 </html>
