@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: COLLEGE_PROJECT
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn COLLEGE_PROJECT.wsgi:application
